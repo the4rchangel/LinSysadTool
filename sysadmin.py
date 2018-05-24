@@ -1,7 +1,7 @@
 #!/bin/#!/usr/bin/env python3
 # https://www.bggofurther.com/2015/01/create-an-interactive-command-line-menu-using-python/
 # https://stackoverflow.com/questions/34192588/simple-menu-in-python-3
-#https://stackoverflow.com/questions/3190955/how-to-create-a-user-in-linux-using-python
+# https://stackoverflow.com/questions/3190955/how-to-create-a-user-in-linux-using-python
 
 import sys, os, getpass
 #Sudo check
@@ -36,13 +36,13 @@ while ans:
           print("""
           1> Add user
           2> Delete user
-          3> List users (with home directories)
-          3> Change user password
-          4> Add user to group
-          5> Remove user from group
-          6> Create group
-          7> List groups
-	  8> Return to previous menu
+          3> List users
+          4> Change user password
+          5> List groups
+          6> Add user to group
+          7> Remove user from group
+          8> Create group
+	  9> Return to previous menu
           """)
           ans1=raw_input("Please select an option: ")
           if ans1=="1":
@@ -61,11 +61,24 @@ while ans:
                 os.system("mv /home/"+uname+ " /var/backups/"+uname)
               os.system("userdel "+uname)
 	      os.system('clear')
-              print ("User "+uname+ " removed!")
-	  if ans1=="8":
+              print ("User "+uname+ " removed!")  
+	  if ans1=="3":
+	      os.system("awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd")
+	      os.system("clear")
+	  if ans1=="4":
+	      uname= raw_input("Which user's password would you like to reset: ")
+	      pwreset= raw_input("Do you want to force a change on next login (y/n): ")
+		if pwreset=="n":
+			os.system("passwd "+uname)
+		if pwreset=="y":
+			os.system("passwd "+uname)
+			os.system("chage -d 0 "+uname)
+			os.system("clear")
+			print ("Password change successful!")
+	  if ans1=="9":
 	      os.system("clear")
 	      break
-	  else:
+	 else:
 	      print("\n I hate this hacker crap! Try again.")
 #System Settings
     elif ans=="2":
