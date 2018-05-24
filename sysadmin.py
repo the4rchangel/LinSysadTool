@@ -28,6 +28,7 @@ while ans:
     6> Exit/Quit
     """)
     ans=raw_input("Please select an option: ")
+#User / Group Settings
     if ans=="1":
       os.system('clear')
       ans1=True
@@ -35,26 +36,38 @@ while ans:
           print("""
           1> Add user
           2> Delete user
-          3> List users
+          3> List users (with home directories)
           3> Change user password
           4> Add user to group
           5> Remove user from group
           6> Create group
           7> List groups
+	  8> Return to previous menu
           """)
           ans1=raw_input("Please select an option: ")
           if ans1=="1":
-              name= raw_input("What is their full name: ")
+	      name= raw_input("What is their full name: ")
               uname= raw_input("What is the username: ")
               password= getpass.getpass('What password would you like to assign: ')
               os.system("useradd -p "+password+" -s "+ "/bin/bash "+ "-d "+ "/home/" + uname+ " -m "+ " -c \""+ name+"\" " + uname)
-              print ("New user "+name+ " added!")
+              os.system('clear')
+	      print ("New user "+name+ " added!")
 	  if ans1=="2":
-              uname= raw_input("What is the username: ")
+	      uname= raw_input("What is the username: ")
               delhome= raw_input("Would you like to delete their home folder (y/n): ")
-              os.system("useradd -p "+password+" -s "+ "/bin/bash "+ "-d "+ "/home/" + uname+ " -m "+ " -c \""+ name+"\" " + uname)
-              print ("New user "+name+ " added!")
-      print("\n USER ADDED")
+              if delhome=="y":
+                os.system("rm -rf "+uname)
+              elif delhome=="n":
+                os.system("mv /home/"+uname+ " /var/backups/"+uname)
+              os.system("userdel "+uname)
+	      os.system('clear')
+              print ("User "+uname+ " removed!")
+	  if ans1=="8":
+	      os.system("clear")
+	      break
+	  else:
+	      print("\n I hate this hacker crap! Try again.")
+#System Settings
     elif ans=="2":
       print("\n Student Deleted")
     elif ans=="3":
