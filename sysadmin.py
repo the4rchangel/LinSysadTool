@@ -45,6 +45,7 @@ while ans:
           """)
             ans1=raw_input("Please select an option: ")
             if ans1=="1":
+		os.system("clear")
                 name= raw_input("What is their full name: ")
                 uname= raw_input("What is the username: ")
                 password= getpass.getpass('What password would you like to assign: ')
@@ -52,6 +53,7 @@ while ans:
                 os.system('clear')
                 print ("New user "+name+ " added!")
             if ans1=="2":
+		os.system("clear")
                 uname= raw_input("What is the username: ")
                 delhome= raw_input("Would you like to delete their home folder (y/n): ")
                 if delhome=="y":
@@ -62,9 +64,10 @@ while ans:
                 os.system('clear')
                 print ("User "+uname+ " removed!")
             if ans1=="3":
+		os.system("clear")
                 os.system("cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1")
-                os.system("clear")
             if ans1=="4":
+		os.system("clear")
                 uname= raw_input("Which user's password would you like to reset: ")
                 pwreset= raw_input("Do you want to force a change on next login (y/n): ")
                 if pwreset=="n":
@@ -75,21 +78,24 @@ while ans:
                     os.system("clear")
                     print ("Password change successful!")
             if ans1=="5":
+		os.system("clear")
                 os.system("getent group")
-                break
             if ans1=="6":
+		os.system("clear")
                 uname= raw_input("Which username would you like to add to a group: ")
                 groupadd= raw_input("Which group would you like to add them to: ")
                 os.system("usermod -a -G "+groupadd+ " "+uname)
                 os.system("clear")
                 print(uname + " added to "+ groupadd)
             if ans1=="7":
+		os.system("clear")
                 uname= raw_input("Which username would you like to remove from a group: ")
                 grouprem= raw_input("Which group would you like to remove them from: ")
                 os.system("gpasswd -d "+uname+ " "+grouprem)
                 os.system("clear")
                 print(uname + " removed from "+ grouprem)
             if ans1=="8":
+		os.system("clear")
                 groupname= raw_input("What would you like the group to be named: ")
                 os.system("groupadd "+groupname)
                 os.system("clear")
@@ -102,15 +108,19 @@ while ans:
                 
 #System Settings
     elif ans=="2":
+	os.system("clear")
 	print("\n Option 2 Not Complete")
 #Networking Settings
     elif ans=="3":
+	os.system("clear")
 	print("\n Option 3 Not Complete")
 #Security Settings
     elif ans=="4":
+	os.system("clear")
 	print("\n Option 4 Not Complete")
 #Reboot Option
     elif ans=="5":
+	os.system("clear")
     	doit= raw_input("Are you sure you'd like to reboot (y/n): ")
 	if doit=="n":
 	    break
@@ -118,7 +128,9 @@ while ans:
 	    os.system("reboot")
 #Exit Program
     elif ans=="6":
+	os.system("clear")
 	print("\n Goodbye")
 	break
     elif ans !="":
+	os.system("clear")
 	print("\n I hate this hacker crap! Try again.")    
