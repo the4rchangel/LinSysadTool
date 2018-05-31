@@ -93,7 +93,7 @@ while ans:
                 groupname= raw_input("What would you like the group to be named: ")
                 os.system("groupadd "+groupname)
                 os.system("clear")
-                print(groupadd " added as a group!")
+                print(groupadd +" added as a group!")
             if ans1=="9":
                 os.system("clear")
                 break
