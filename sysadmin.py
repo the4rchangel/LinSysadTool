@@ -62,7 +62,7 @@ while ans:
                 os.system('clear')
                 print ("User "+uname+ " removed!")
             if ans1=="3":
-                os.system("awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd")
+                os.system("cut -d: -f1,3 /etc/passwd | egrep ':[0-9]{4}$' | cut -d: -f1")
                 os.system("clear")
             if ans1=="4":
                 uname= raw_input("Which user's password would you like to reset: ")
