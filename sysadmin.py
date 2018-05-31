@@ -101,19 +101,23 @@ while ans:
                 print("\n I hate this hacker crap! Try again.")
                 
 #System Settings
-        elif ans=="2":
-                        print("\n Option 2 Not Complete")
-        elif ans=="3":
-                        print("\n Option 3 Not Complete")
-        elif ans=="4":
-                        print("\n Option 4 Not Complete")
-        elif ans=="5":
-            doit= raw_input("Are you sure you'd like to reboot (y/n): ")
+	elif ans=="2":
+	print("\n Option 2 Not Complete")
+#Networking Settings
+	elif ans=="3":
+	print("\n Option 3 Not Complete")
+#Security Settings
+	elif ans=="4":
+	print("\n Option 4 Not Complete")
+#Reboot Option
+	elif ans=="5":
+    	doit= raw_input("Are you sure you'd like to reboot (y/n): ")
             if doit=="n":
                 break
             if doit=="y":
                 os.system("reboot")
-        elif ans=="6":
+#Exit Program
+	elif ans=="6":
             print("\n Goodbye")
             break
         elif ans !="":
