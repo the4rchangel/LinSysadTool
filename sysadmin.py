@@ -1,7 +1,6 @@
 #!/bin/#!/usr/bin/env python3
 # https://www.bggofurther.com/2015/01/create-an-interactive-command-line-menu-using-python/
 # https://stackoverflow.com/questions/34192588/simple-menu-in-python-3
-# https://stackoverflow.com/questions/3190955/how-to-create-a-user-in-linux-using-python
 
 import sys, os, getpass
 #Sudo check
